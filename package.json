@@ -2,16 +2,17 @@
   "name": "youtubeapi",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://chetangiri9.github.io/youtube-api",
+  "homepage": "https://chetangiri9.github.io/youtube-api",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "update": "^0.7.4"
   },
   "scripts": {
-    "deploy":"gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
