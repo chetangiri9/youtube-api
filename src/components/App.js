@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
 import VideoList from "./VideoList";
@@ -11,26 +12,30 @@ class App extends React.Component {
     this.onTermSubmit("space");
   }
 
-  onTermSubmit = async term => {
+  onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
-        q: term
-      }
+        q: term,
+      },
     });
 
     this.setState({
       videos: response.data.items,
-      selectedVideo: response.data.items[0]
+      selectedVideo: response.data.items[0],
     });
   };
 
-  onVideoSelect = video => {
+  onVideoSelect = (video) => {
     this.setState({ selectedVideo: video });
   };
 
   render() {
     return (
       <div className="ui container">
+        <Helmet>
+          <title>Youtube Mock</title>
+          <meta name="description" content="A React application using youtube API" />
+        </Helmet>
         <SearchBar onFormSubmit={this.onTermSubmit} />
         <div className="ui grid">
           <div className="ui row">
